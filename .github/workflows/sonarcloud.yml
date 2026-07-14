@@ -54,11 +54,11 @@ jobs:
           path: ~/.cache/ccache
           key: ccache-sonarcloud
       - run: ccache -z
-      - uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v7.1.0
+      - uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v8.2.0
       - run: |
           echo "BUILD_WRAPPER_OUT_DIR=$HOME/bw-output" >> $GITHUB_ENV
       - run: ./scripts/test.sh
-      - uses: SonarSource/sonarqube-scan-action@v7.1.0
+      - uses: SonarSource/sonarqube-scan-action@v8.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
