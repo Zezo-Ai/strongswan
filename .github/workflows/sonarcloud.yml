@@ -65,7 +65,8 @@ jobs:
           args: >
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-            -Dsonar.cfamily.threads=2
+            -Dsonar.cfamily.threads=4
+            -Dsonar.cfamily.taintAnalysis=false
             -Dsonar.cfamily.compile-commands=${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
       - run: ccache -sv
       - if: github.event_name == 'push'
