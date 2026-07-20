@@ -2226,13 +2226,13 @@ static bool key_exchange_done_and_install_r(private_child_create_t *this,
 			case SUCCESS:
 				break;
 			case NOT_FOUND:
-				message->add_notify(message, TRUE, TS_UNACCEPTABLE,
+				message->add_notify(message, FALSE, TS_UNACCEPTABLE,
 									chunk_empty);
 				handle_child_sa_failure(this, message);
 				return TRUE;
 			case FAILED:
 			default:
-				message->add_notify(message, TRUE, NO_PROPOSAL_CHOSEN,
+				message->add_notify(message, FALSE, NO_PROPOSAL_CHOSEN,
 									chunk_empty);
 				handle_child_sa_failure(this, message);
 				return TRUE;
